@@ -16,3 +16,33 @@ La librería de seguridad que usarás para el Módulo 2 para realizar el cifrado
 Te servirá para leer, procesar y guardar las imágenes que capture tu sistema de inventario visual.  
 # pandas: 
 Ideal para estructurar y guardar el inventario de activos en un formato ordenado como tablas, CSV o JSON.  
+
+
+Como segundo paso, entramos a Roboflow , descargamos las imagenes 
+
+<img width="1326" height="547" alt="image" src="https://github.com/user-attachments/assets/b3e89ea3-d8f6-4600-9547-7f496b37f9bd" />
+
+Descargamos el archivo en yolov8 y el archivo en zip
+
+<img width="916" height="121" alt="image" src="https://github.com/user-attachments/assets/3df9e7db-946c-467a-94bf-627508bd33ba" />
+
+Luego en Python cargamos el archivo
+
+<img width="1868" height="320" alt="image" src="https://github.com/user-attachments/assets/3873b76a-6cb0-4161-9032-a9ccd048ff67" />
+
+El siguiente paso lógico es entrenar el modelo de visión artificial utilizando esos datos que acabas de bajar. Como especificamos el formato "yolov8", usaremos la librería oficial de Ultralytics para poner en marcha el entrenamiento.
+
+# Instalar la librería de entrenamiento (YOLO)
+
+<img width="1819" height="866" alt="image" src="https://github.com/user-attachments/assets/4425af99-3b7c-4cd8-80e8-7248c8d0b5a6" />
+
+# Poner a correr el entrenamiento
+<img width="1777" height="265" alt="image" src="https://github.com/user-attachments/assets/580574e4-438b-4097-92ba-0ce5cd90956f" />
+
+
+
+
+
+
+
+
