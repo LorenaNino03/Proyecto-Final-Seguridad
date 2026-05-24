@@ -38,6 +38,27 @@ El siguiente paso lógico es entrenar el modelo de visión artificial utilizando
 
 # Poner a correr el entrenamiento
 <img width="1777" height="265" alt="image" src="https://github.com/user-attachments/assets/580574e4-438b-4097-92ba-0ce5cd90956f" />
+<img width="1910" height="429" alt="image" src="https://github.com/user-attachments/assets/aaf80b12-d988-4f7d-ae0e-ca40128fa07b" />
+
+Podemos observar que termino con exito 
+
+<img width="1607" height="347" alt="image" src="https://github.com/user-attachments/assets/986c37f2-5731-49d0-8132-0f243bad662a" />
+
+# Script de Detección de Prueba
+
+<img width="1493" height="350" alt="image" src="https://github.com/user-attachments/assets/9966d4c9-c9ba-4898-90b6-a24e3ce87a1a" />
+
+el script se ejecutará de principio a fin, leerá la foto y guardará el resultado en la carpeta `predict` dándole mucha más sensibilidad al modelo para pintar las cajas de detección
+
+<img width="1382" height="422" alt="Captura de pantalla 2026-05-23 222203" src="https://github.com/user-attachments/assets/b438805a-d610-43e0-a465-d5135e7d01a7" />
+
+se ve la foto limpia, significa que el modelo con el umbral actual pasó de largo sin dibujar la caja.
+
+vamos a bajar el umbral de confianza a cero (conf=0.001). Esto forzará a YOLOv8 a pintar la caja en el lugar donde tenga así sea la más mínima sospecha de que ahí está el equipo.
+
+<img width="387" height="249" alt="Captura de pantalla 2026-05-23 222552" src="https://github.com/user-attachments/assets/f229f137-1f7f-40b4-900b-88902085ae02" />
+
+
 
 
 
