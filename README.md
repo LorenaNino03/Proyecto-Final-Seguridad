@@ -59,11 +59,63 @@ vamos a bajar el umbral de confianza a cero (conf=0.001). Esto forzará a YOLOv8
 <img width="387" height="249" alt="Captura de pantalla 2026-05-23 222552" src="https://github.com/user-attachments/assets/f229f137-1f7f-40b4-900b-88902085ae02" />
 
 
+## Módulo 2 – Cifrado de la Información (Criptografía)
+**Norma aplicada:** ISO 27001:2022 - Control A.10 (Cryptography)
+
+**Concepto:** Se simula el envío seguro de una imagen capturada en campo 
+(zona no segura) hacia un servidor central de auditoría. Si la imagen es 
+interceptada, no puede ser leída.
+
+### Paso 1 – Hash SHA-256 (Integridad)
+Se calcula el hash de la imagen original antes de enviarla.
+Si alguien la altera en tránsito, el hash no coincidirá al verificar.
+
+<img width="1087" height="245" alt="image" src="https://github.com/user-attachments/assets/476c5d45-1b59-4e30-8c4d-b5e4d97865f1" />
 
 
+### Paso 2 – Cifrado AES-256 (Confidencialidad)
+Se genera una clave aleatoria de 256 bits y se cifra la imagen completa.
+Sin la clave, la imagen es ilegible.
+
+<img width="990" height="139" alt="image" src="https://github.com/user-attachments/assets/235d1bf7-fd2f-468f-8afe-71c0a7df21b4" />
 
 
+### Paso 3 – Cifrado híbrido RSA + AES (Intercambio seguro de clave)
+La clave AES se cifra con RSA-2048. Solo quien tenga la clave privada 
+puede recuperarla.
+
+<img width="1124" height="372" alt="image" src="https://github.com/user-attachments/assets/64637486-23a2-4746-b02b-7763bbb0b0a6" />
 
 
+### Resultado en el servidor
+- Clave AES recuperada: ✅ SÍ  
+- Imagen descifrada correctamente: ✅ SÍ  
+- Integridad verificada (SHA-256 coincide): ✅ SÍ
 
+<img width="1118" height="506" alt="image" src="https://github.com/user-attachments/assets/a65ea294-39d5-462e-83f3-c8f3f8f8e482" />
 
+## Módulo 3: Auditoría y Normativa ISO 27001
+
+# Pregunta 1.¿El modelo YOLO logró listar todos los routers y switches ¿Ayuda a mantener un inventario actualizado?
+
+Respuesta: El modelo YOLOv8 entrenado detecta visualmente dispositivos de red (routers, switches, firewalls, servidores, hubs) y genera un registro con marca de tiempo. Esto contribuye a mantener un inventario visual actualizado de activos físicos. Sin embargo, el inventario es visual y no reemplaza un CMDB (base de datos de gestión de configuración) completo.
+Tema ISO 27001: Organizacional
+
+# Pregunta 2: (Uso aceptable de activos) ¿El software de detección solo se usa para inventario?
+
+Respuesta:Sí, cumplido. El sistema desarrollado tiene un único propósito definido: detectar y registrar visualmente activos de telecomunicaciones para fines de inventario y auditoría. No se utiliza para vigilancia de personas ni para ningún otro fin fuera del alcance del proyecto.
+Tema ISO 27001: Organizacional
+
+# Pregunta 3: (Transferencia de información) ¿Se aplicó el cifrado (Módulo 2 al enviar los datos?
+
+Respuesta: Sí, cumplido.
+El Módulo 2 implementa cifrado híbrido (AES-256 + RSA-2048) para proteger la imagen y sus metadatos durante la transmisión. Adicionalmente se calcula el hash SHA-256 para verificar integridad. Cualquier imagen interceptada en tránsito resulta ilegible sin la clave privada RSA.
+
+# Pregunta 4: (Etiquetado de activos) ¿Las fotos sirven como etiqueta visual del equipo?
+
+Respuesta: Las imágenes capturadas con las cajas de detección de YOLO (bounding boxes) y sus metadatos (tipo de dispositivo, coordenadas, hora) funcionan como etiqueta visual del activo. No reemplazan etiquetas físicas (código QR, número de serie), pero complementan el inventario con evidencia fotográfica fechada.
+
+# Pregunta 5: (Protección contra malware) ¿El ordenador donde corre YOLO tiene antivirus?
+
+Respuesta:Sí, cumplido.
+El equipo donde se ejecuta el sistema cuenta con Windows Defender activo (antivirus nativo de Windows 11), lo cual proporciona protección base contra malware. Se recomienda complementar con análisis periódicos y mantener el sistema operativo actualizado.
